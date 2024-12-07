@@ -1,0 +1,7 @@
+com\mycompany\version1\AccountController.class
+com\mycompany\version1\Beneficiary.class
+com\mycompany\version1\AccountBalance.class
+com\mycompany\version1\ReadCsv.class
+com\mycompany\version1\Transaction.class
+com\mycompany\version1\Account.class
+com\mycompany\version1\Main.class
