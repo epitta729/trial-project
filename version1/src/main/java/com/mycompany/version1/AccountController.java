@@ -58,7 +58,7 @@ public class AccountController {
                 .collect(Collectors.toList());
     }
     
-    //4. Retrieve beneficiary's account balance..
+    //4. Retrieve beneficiary's account balance.
     @GetMapping("balance/{beneficiaryId}")
     public List<AccountBalance> getBalance(@PathVariable int beneficiaryId) {
         return accounts.stream()
@@ -81,7 +81,7 @@ public class AccountController {
             .collect(Collectors.toList());                    
     }    
    
-    //5. Retrieve the maximum withdrawal of a beneficiary for the last month
+    //5. Retrieve the maximum withdrawal of a beneficiary for the last month.
     @GetMapping("maxWithdrawal/{beneficiaryId}")
     public Transaction getMaxWithdrawal(@PathVariable int beneficiaryId) {
         
