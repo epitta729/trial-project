@@ -17,28 +17,33 @@ public class BenController {
     
     @Autowired
     private BenService benservice;
-    
+
+    //1. Retrieve beneficiary information.
     @GetMapping("/beneficiaries/{id}")
     public Object getBenInfo(@PathVariable Long id){
         return benservice.getBenInfo(id);    
     }
-    
-    @GetMapping("/accounts/{id}")
+
+    //2. Retrieve beneficiary's accounts.
+    @GetMapping("/beneficiaries/{id}/accounts")
     public Object getBenAccounts(@PathVariable Long id){
         return benservice.getBenAccounts(id);    
     }
-    
-    @GetMapping("/transactions/{id}")
+
+    //3. Retrieve beneficiary's transactions
+    @GetMapping("/beneficiaries/{id}/accounts/transactions")
     public Object getBenTransactions(@PathVariable Long id){
         return benservice.getBenTransactions(id);    
     }
-    
-    @GetMapping("/balance/{id}")
+
+    //4. Retrieve beneficiary's account balance
+    @GetMapping("/beneficiaries/{id}/accounts/transactions/balance")
     public Object getBalance(@PathVariable Long id){
         return benservice.getBalance(id);    
     }
-    
-    @GetMapping("/maxWithdrawal/{id}")
+
+    //5. Retrieve the maximum withdrawal of a beneficiary for the last month
+    @GetMapping("/beneficiaries/{id}/accounts/transactions/maxWithdrawal")
     public Object getMaxWithdrawal(@PathVariable Long id){
         return benservice.getMaxWithdrawal(id);    
     }
