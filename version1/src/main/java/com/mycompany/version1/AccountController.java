@@ -87,7 +87,7 @@ public class AccountController {
             if(transactionsList.isEmpty()){
                 return ResponseEntity.notFound().build();// 404 Not Found
             }
-            return ResponseEntity.ok(transactionsList); // 200 OK    
+            return ResponseEntity.ok(transactionsList); // 200 Ok    
         } catch (Exception e){
             return ResponseEntity.internalServerError().body("Error retrieving beneficiary transactions"); //500 Internal Server Error
         }
@@ -119,7 +119,7 @@ public class AccountController {
             if(balances.isEmpty()){
                 return ResponseEntity.notFound().build();// 404 Not Found
             }
-            return ResponseEntity.ok(balances); // 200 OK
+            return ResponseEntity.ok(balances); // 200 Ok
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error retrieving account balance"); // 500 Internal Server Error
         }
@@ -175,7 +175,7 @@ public class AccountController {
                 return ResponseEntity.notFound().build();// 404 Not Found
             } 
             
-            return ResponseEntity.ok(maxwithdrawal); // 200 OK
+            return ResponseEntity.ok(maxwithdrawal); // 200 Ok
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error retrieving maximum withdrawal"); // 500 Internal Server Error
         }
