@@ -41,7 +41,7 @@ public class AccountController {
     }
  
     //2. Retrieve beneficiary's accounts.
-    @GetMapping("accounts/{id}")
+    @GetMapping("/beneficiaries/{id}/accounts")
     public List<Account> getBenAccounts(@PathVariable int id){
         return accounts.stream()
                 .filter(a->a.getBeneficiaryId() == id)
@@ -49,7 +49,7 @@ public class AccountController {
     }
         
     //3. Retrieve beneficiary's transactions.
-    @GetMapping("transactions/{id}")
+    @GetMapping("/beneficiaries/{id}/accounts/transactions")
     public List<Transaction> getBenTrans(@PathVariable int id){
         List<Account> benAcc = getBenAccounts(id);
         return transactions.stream()
@@ -59,7 +59,7 @@ public class AccountController {
     }
     
     //4. Retrieve beneficiary's account balance.
-    @GetMapping("balance/{id}")
+    @GetMapping("/beneficiaries/{id}/accounts/transactions/balance")
     public List<AccountBalance> getBalance(@PathVariable int id) {
         return accounts.stream()
             .filter(a -> a.getBeneficiaryId() == id)
@@ -82,7 +82,7 @@ public class AccountController {
     }    
    
     //5. Retrieve the maximum withdrawal of a beneficiary for the last month.
-    @GetMapping("maxWithdrawal/{id}")
+    @GetMapping("/beneficiaries/{id}/accounts/transactions/maxWithdrawal")
     public Transaction getMaxWithdrawal(@PathVariable int id) {
         
         List<Account> benAcc = getBenAccounts(id);        
