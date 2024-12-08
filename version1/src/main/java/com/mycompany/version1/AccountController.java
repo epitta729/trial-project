@@ -41,17 +41,17 @@ public class AccountController {
     }
  
     //2. Retrieve beneficiary's accounts.
-    @GetMapping("accounts/{beneficiaryId}")
-    public List<Account> getBenAccounts(@PathVariable int beneficiaryId){
+    @GetMapping("accounts/{id}")
+    public List<Account> getBenAccounts(@PathVariable int id){
         return accounts.stream()
-                .filter(a->a.getBeneficiaryId() == beneficiaryId)
+                .filter(a->a.getBeneficiaryId() == id)
                 .collect(Collectors.toList());
     }
         
     //3. Retrieve beneficiary's transactions.
-    @GetMapping("transactions/{beneficiaryId}")
-    public List<Transaction> getBenTrans(@PathVariable int beneficiaryId){
-        List<Account> benAcc = getBenAccounts(beneficiaryId);
+    @GetMapping("transactions/{id}")
+    public List<Transaction> getBenTrans(@PathVariable int id){
+        List<Account> benAcc = getBenAccounts(id);
         return transactions.stream()
                 .filter(t-> benAcc.stream()
                             .anyMatch(b->b.getAccountId()== t.getAccountId()))
@@ -59,10 +59,10 @@ public class AccountController {
     }
     
     //4. Retrieve beneficiary's account balance.
-    @GetMapping("balance/{beneficiaryId}")
-    public List<AccountBalance> getBalance(@PathVariable int beneficiaryId) {
+    @GetMapping("balance/{id}")
+    public List<AccountBalance> getBalance(@PathVariable int id) {
         return accounts.stream()
-            .filter(a -> a.getBeneficiaryId() == beneficiaryId)
+            .filter(a -> a.getBeneficiaryId() == id)
             .map(a -> {
                     double balance = transactions.stream()
                         .filter(t -> t.getAccountId() == a.getAccountId())
@@ -82,10 +82,10 @@ public class AccountController {
     }    
    
     //5. Retrieve the maximum withdrawal of a beneficiary for the last month.
-    @GetMapping("maxWithdrawal/{beneficiaryId}")
-    public Transaction getMaxWithdrawal(@PathVariable int beneficiaryId) {
+    @GetMapping("maxWithdrawal/{id}")
+    public Transaction getMaxWithdrawal(@PathVariable int id) {
         
-        List<Account> benAcc = getBenAccounts(beneficiaryId);        
+        List<Account> benAcc = getBenAccounts(id);        
         //search all withdrawals of the person's accounts
         List<Transaction> withdrawals = transactions.stream()
             .filter(t -> benAcc.stream().anyMatch(a -> a.getAccountId() == t.getAccountId()))
