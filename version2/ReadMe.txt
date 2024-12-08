@@ -5,10 +5,10 @@
 
 ## Λειτουργίες API
 1. Ανάκτηση στοιχείων δικαιούχου: GET /api/beneficiaries/{beneficiaryId}
-2. Ανάκτηση λογαριασμών δικαιούχου: GET /api/accounts/{beneficiaryId}
-3. Ανάκτηση συναλλαγών δικαιούχου: GET /api/transactions/{beneficiaryId}
-4. Υπολογισμός υπολοίπου λογαριασμών: GET /api/balance/{beneficiaryId}
-5. Εύρεση μεγαλύτερης ανάληψης τον τελευταίο μήνα: GET /api/maxWithdrawal/{beneficiaryId}
+2. Ανάκτηση λογαριασμών δικαιούχου: GET /api/beneficiaries/{beneficiaryId}/accounts
+3. Ανάκτηση συναλλαγών δικαιούχου: GET /api/beneficiaries/{beneficiaryId}/accounts/transactions
+4. Υπολογισμός υπολοίπου λογαριασμών: GET /api/beneficiaries/{beneficiaryId}/accounts/transactions/balance
+5. Εύρεση μεγαλύτερης ανάληψης τον τελευταίο μήνα: GET /api/beneficiaries/{beneficiaryId}/accounts/transactions/maxWithdrawal
 
 ## Προαπαιτούμενα
 - Java 17
@@ -29,7 +29,7 @@
 
 3. Εκτέλεση της Εφαρμογής
   - Κατεβάστε το project:	git clone <repository_url>
-     				cd version2
+     				            cd version2
   - Εκκινήστε την εφαρμογή:	mvn spring-boot:run
   - Δοκιμάστε τα endpoints στο: http://localhost:8080/api
 
