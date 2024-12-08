@@ -82,9 +82,9 @@ CREATE FUNCTION main.getbalance(beneficiary_id bigint) RETURNS TABLE(accountid b
 BEGIN
 	RETURN QUERY
 	select 	t.accountid
-		,greatest(SUM(case WHEN t.type = 'deposit' THEN t.amount 
+		,SUM(case WHEN t.type = 'deposit' THEN t.amount 
 			WHEN t.type = 'withdrawal' THEN -t.amount 
-                ELSE 0 END),0) AS balance
+                ELSE 0 END) AS balance
 	from main.transactions t,main.accounts a 
 	where t.accountid = a.accountid and a.beneficiaryid = beneficiary_id
 	group by t.accountid;
