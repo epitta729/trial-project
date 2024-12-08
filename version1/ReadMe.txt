@@ -15,7 +15,7 @@
 - Maven
 
 ## Εκτέλεση
-1. Κλωνοποιήστε το project: 	git clone <repository_url>
+1. Κατεβάστε το project: 	git clone <repository_url>
    				cd version1
 2. Εκκινήστε την εφαρμογή: 	mvn spring-boot:run
 3. Δοκιμάστε τα endpoints στο: 	http://localhost:8080/api
