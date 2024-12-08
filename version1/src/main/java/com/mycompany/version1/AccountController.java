@@ -75,9 +75,7 @@ public class AccountController {
                                 return 0;
                             }                    
                         })
-                        .sum();                    
-                    //if balance<0 then return 0 ---> Accounts withs debts 
-                    balance=Math.max(balance, 0);                    
+                        .sum();                                      
                     return new AccountBalance(a.getAccountId(),balance);
             })
             .collect(Collectors.toList());                    
