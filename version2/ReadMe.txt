@@ -28,7 +28,7 @@
      spring.datasource.password=<PASSWORD>
 
 3. Εκτέλεση της Εφαρμογής
-  - Κλωνοποιήστε το project:	git clone <repository_url>
+  - Κατεβάστε το project:	git clone <repository_url>
      				cd version2
   - Εκκινήστε την εφαρμογή:	mvn spring-boot:run
   - Δοκιμάστε τα endpoints στο: http://localhost:8080/api
